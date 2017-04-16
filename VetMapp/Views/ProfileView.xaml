@@ -1,0 +1,239 @@
+﻿<Page
+    x:Class="VetMapp.Views.ProfileView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:VetMapp.Helpers"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <local:BorderWidthConverter x:Key="brdConverter"/>
+    </Page.Resources>
+    
+    <Grid>
+
+        <Grid>
+
+            <Grid.Background>
+                <SolidColorBrush Color="#F1F1F1"/>
+            </Grid.Background>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="45"/>
+                <RowDefinition Height="0.5"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0">
+
+                <Grid.Background>
+                    <SolidColorBrush Color="#ffffff"/>
+                </Grid.Background>
+
+                <TextBlock Text="Profil" Foreground="#18bda3" FontWeight="SemiBold" FontSize="19" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+            </Grid>
+
+            <Grid Grid.Row="1">
+
+                <Grid.Background>
+                    <SolidColorBrush Color="#b1b1b1"/>
+                </Grid.Background>
+
+            </Grid>
+
+            <Grid Grid.Row="2" MaxWidth="500">
+
+                <Grid.Background>
+                    <SolidColorBrush Color="#ffffff"/>
+                </Grid.Background>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0">
+
+                    <StackPanel>
+
+                        <Grid Margin="30,20,20,0">
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Text="Ad Soyad :" Grid.Column="0" Opacity="0.7" FontSize="17" FontWeight="Bold" Foreground="#000000" HorizontalAlignment="Left"/>
+                            <TextBlock x:Name="nameSurname" Grid.Column="1" Opacity="0.7" FontSize="17" FontWeight="Bold" Foreground="#19bda4"  HorizontalAlignment="Right"/>
+
+                        </Grid>
+
+                        <Grid Margin="30,10,20,0">
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Text="Kullanıcı Adı :" Grid.Column="0" Opacity="0.7" FontSize="15" FontWeight="Normal" Foreground="#000000" HorizontalAlignment="Left"/>
+                            <TextBlock Name="username" Grid.Column="1" Opacity="0.7" FontSize="15" Foreground="Gray"  HorizontalAlignment="Right"/>
+
+                        </Grid>
+
+                        <Grid Margin="30,10,20,20">
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Text="E-Posta :" Grid.Column="0" Opacity="0.7" FontSize="15" FontWeight="Normal" Foreground="#000000" HorizontalAlignment="Left"/>
+                            <TextBlock x:Name="email" Grid.Column="1" FontSize="15" Opacity="0.7" Foreground="Gray" HorizontalAlignment="Right"/>
+
+                        </Grid>
+
+                    </StackPanel>
+
+                </Grid>
+
+                <Grid Grid.Row="1">
+
+                    <ListView x:Name="listView" SelectionMode="Single" SelectionChanged="listView_SelectionChanged" HorizontalContentAlignment="Center" HorizontalAlignment="Center">
+
+                        <ListView.ItemContainerStyle>
+                            <Style TargetType="ListViewItem">
+                                <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                                <Setter Property="HorizontalAlignment" Value="Stretch"/>
+                            </Style>
+                        </ListView.ItemContainerStyle>
+
+                        <ListView.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <ItemsWrapGrid HorizontalAlignment="Stretch" MaximumRowsOrColumns="2" Orientation="Horizontal"/>
+                            </ItemsPanelTemplate>
+                        </ListView.ItemsPanel>
+
+                        <ListView.ItemTemplate>
+
+                            <DataTemplate>
+
+                                <Border Margin="1,1,0,0" HorizontalAlignment="Center" Width="{Binding ActualWidth, Converter={StaticResource brdConverter}, ElementName=lst1, Mode=OneWay}">
+
+                                    <Grid Margin="35">
+
+                                        <StackPanel>
+
+                                            <Grid>
+
+                                                <Ellipse Width="120" Height="120">
+                                                    <Ellipse.Fill>
+                                                        <ImageBrush ImageSource="{Binding Logo}"/>
+                                                    </Ellipse.Fill>
+                                                </Ellipse>
+
+                                                <Ellipse Width="120" Height="120">
+                                                    <Ellipse.Fill>
+                                                        <ImageBrush ImageSource="{Binding Picture.Url.OriginalString}"/>
+                                                    </Ellipse.Fill>
+                                                </Ellipse>
+                                       
+                                            </Grid>
+
+                                            <TextBlock Text="{Binding Name}" Margin="0,5,0,0" Foreground="#18bda3" FontWeight="SemiBold" FontSize="17" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+                                        </StackPanel>
+                                        
+                                    </Grid>
+                                    
+                                </Border>
+
+                            </DataTemplate>
+
+                        </ListView.ItemTemplate>
+
+                    </ListView>
+
+                    <ProgressBar x:Name="progress" Background="Transparent" Foreground="#21c0a5" VerticalAlignment="Center"/>
+
+                </Grid>
+
+                <Grid Grid.Row="2">
+
+                    <StackPanel>
+
+                        <Grid Tapped="addPet_Tapped" Margin="0,10,0,8">
+
+                            <Rectangle Fill="#19bda4" Opacity="0.8" RadiusX="13" RadiusY="13" Height="45" Margin="20,0,20,0" VerticalAlignment="Stretch" />
+
+                            <TextBlock Text="Küçük Dostumu Ekle" FontSize="15" Foreground="#ffffff" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+                        </Grid>
+
+                        <Grid Tapped="exit_Tapped" Margin="0,0,0,8">
+
+                            <Rectangle Fill="#ff6566" Opacity="0.8" RadiusX="13" RadiusY="13" Height="45" Margin="20,0,20,0" VerticalAlignment="Stretch" />
+
+                            <TextBlock Text="Çıkış Yap" FontSize="15" Foreground="#ffffff" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+                        </Grid>
+
+                    </StackPanel>
+
+                </Grid>
+
+            </Grid>
+
+        </Grid>
+
+        <Grid>
+
+            <Grid x:Name="backgroundPanel" Margin="0,-40,0,-60" Visibility="Collapsed" Background="#000000" Opacity="0.7"/>
+
+            <Grid x:Name="logOutPanel" Visibility="Collapsed" Width="280" VerticalAlignment="Center">
+
+                <Rectangle Fill="#ffffff" RadiusX="15" RadiusY="15"/>
+
+                <StackPanel>
+
+                    <TextBlock Text="Çıkış yap ?" Margin="0,40,0,0" FontSize="17" FontWeight="Normal" Foreground="#000000" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+                    <TextBlock Margin="0,10,0,5" FontSize="14" FontWeight="Normal" Foreground="Gray" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Run Text="Çıkış yapmak istediğnize emin"/>
+                        <LineBreak/>
+                        <Run Text="misiniz? Uygulamadan çıkış yaptığınız"/>
+                        <LineBreak/>
+                        <Run Text="takdirde uygulama kapatılacaktır."/>
+                    </TextBlock>
+
+                    <Grid x:Name="acceptButton" Margin="15,8,15,0" Tapped="button_Tapped">
+
+                        <Rectangle Fill="#19bda4" Opacity="0.7" RadiusX="10" RadiusY="10" Height="40" HorizontalAlignment="Stretch"/>
+
+                        <TextBlock Text="Evet" FontSize="15" FontWeight="SemiBold" Foreground="#ffffff" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+                    </Grid>
+
+                    <Grid x:Name="exitButtonForLogOutPanel" Margin="15,8,15,8" Tapped="button_Tapped">
+
+                        <Rectangle Fill="#19bda4" Opacity="0.7" RadiusX="10" RadiusY="10" Height="40" HorizontalAlignment="Stretch"/>
+
+                        <TextBlock Text="Vazgeç" FontSize="15" FontWeight="SemiBold" Foreground="#ffffff" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+                    </Grid>
+
+                </StackPanel>
+
+                <Rectangle Fill="#ffffff" RadiusX="34" RadiusY="34" Height="68" Width="68" Margin="0,-30,0,0" Stretch="Uniform" VerticalAlignment="Top"/>
+
+                <Image Source="ms-appx:///Assets/PopupIcons/attention.png" Height="60" Margin="0,-26,0,0" Stretch="Uniform" VerticalAlignment="Top"/>
+
+            </Grid>
+
+        </Grid>
+
+    </Grid>
+
+</Page>

@@ -1,0 +1,367 @@
+﻿<Page
+    x:Class="VetMapp.Views.PetView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:VetMapp.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Styles/TextBoxStyle.xaml"/>
+                <ResourceDictionary Source="/Styles/DatePickerStyle.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+
+    <Grid>
+
+        <Grid>
+
+            <Grid.Background>
+                <SolidColorBrush Color="#F1F1F1"/>
+            </Grid.Background>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="45"/>
+                <RowDefinition Height="0.5"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0">
+
+                <Grid.Background>
+                    <SolidColorBrush Color="#FFFFFF"/>
+                </Grid.Background>
+
+                <AppBarButton x:Name="back" Foreground="#19bda4" HorizontalAlignment="Left" VerticalAlignment="Center" Click="back_Click">
+                    <AppBarButton.Icon>
+                        <BitmapIcon Margin="10,0,0,0" UriSource="Assets/Icons/back.png"  HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                    </AppBarButton.Icon>
+                </AppBarButton>
+
+                <TextBlock Text="{Binding Name}" Foreground="#18bda3" FontWeight="SemiBold" FontSize="19" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+            </Grid>
+
+            <Grid Grid.Row="1">
+
+                <Grid.Background>
+                    <SolidColorBrush Color="#b1b1b1"/>
+                </Grid.Background>
+
+            </Grid>
+
+            <Grid Grid.Row="2" MaxWidth="500">
+
+                <Grid.Background>
+                    <SolidColorBrush Color="#FFFFFF"/>
+                </Grid.Background>
+
+                <ScrollViewer VerticalAlignment="Stretch" VerticalScrollBarVisibility="Visible" VerticalScrollMode="Enabled" AllowDrop="False" BringIntoViewOnFocusChange="True" IsHoldingEnabled="True">
+
+                    <StackPanel x:Name="petInformation" MaxWidth="500">
+
+                        <Grid Margin="20,30,20,10">
+
+                            <TextBlock Foreground="#18bda3" FontSize="15" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Run Text="Veteriner hekimlere sorularınızı sorarken kullanmak"/>
+                        <LineBreak/>
+                        <Run Text="üzere küçük dostumuzun bilgilerini ekleyebilirsiniz."/>
+                            </TextBlock>
+
+                        </Grid>
+
+                        <Grid Margin="20,0,20,0">
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Grid Grid.Column="0">
+
+                                <TextBlock Text="Fotoğraf Ekle"  Opacity="0.7" FontSize="17" FontWeight="Bold" Foreground="#000000" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+
+                            </Grid>
+
+                            <Grid Grid.Column="1">
+
+                                <Ellipse Fill="#e2f7f2" Stroke="#19bda4" StrokeThickness="0.5" Width="100" Height="100" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+
+                                <Image Source="ms-appx:///Assets/Icons/plus.png" Height="60" Margin="0,0,18,0" Stretch="Uniform" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+
+                                <Ellipse x:Name="pictureButton" Tapped="pictureButton_Tapped" Width="100" Height="100" HorizontalAlignment="Right" VerticalAlignment="Center">
+                                    <Ellipse.Fill>
+                                        <ImageBrush ImageSource="{Binding Picture.Url.OriginalString}"/>
+                                    </Ellipse.Fill>
+                                </Ellipse>
+
+                            </Grid>
+
+                        </Grid>
+
+                        <Grid Margin="20,20,20,0">
+
+                            <Rectangle Fill="Transparent" Stroke="#d3d3d3" StrokeThickness="0.7" RadiusX="10" RadiusY="10" Height="45" HorizontalAlignment="Stretch"/>
+
+                            <Grid>
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <TextBlock Grid.Column="0" Text="Dostumuzun Adı" Opacity="0.6" FontSize="15" Foreground="#000000" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,0,0,0"/>
+
+                                <TextBox x:Name="name" Text="{Binding Name}" Grid.Column="1" InputScope="Text" TextAlignment="Right" Margin="0,5,5,0" FontFamily="Calibri" FontSize="18" FontWeight="Normal" Foreground="#19bda4" Style="{StaticResource TextBoxStyle}" />
+
+                            </Grid>
+
+                        </Grid>
+
+                        <Grid Margin="20,8,20,0">
+
+                            <Rectangle Fill="Transparent" Stroke="#d3d3d3" StrokeThickness="0.7" RadiusX="10" RadiusY="10" Height="45" HorizontalAlignment="Stretch"/>
+
+                            <Grid>
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <TextBlock Grid.Column="0" Text="Doğum Tarihi" Opacity="0.6" FontSize="15" Foreground="#000000" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,0,0,0"/>
+
+                                <DatePicker x:Name="birthdateDatePicker" Grid.Column="1" BorderThickness="0" HorizontalAlignment="Right" VerticalAlignment="Center" Style="{StaticResource DatePickerStyle}" Margin="0,0,5,0"/>
+
+                            </Grid>
+
+                        </Grid>
+
+                        <Grid Margin="20,8,20,0">
+
+                            <Rectangle Fill="Transparent" Stroke="#d3d3d3" StrokeThickness="0.7" RadiusX="10" RadiusY="10" Height="45" HorizontalAlignment="Stretch"/>
+
+                            <Grid>
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <TextBlock Grid.Column="0" Text="Irkı" Opacity="0.6" FontSize="15" Foreground="#000000" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,0,0,0"/>
+
+                                <ComboBox Grid.Column="1" SelectedItem="{Binding Kind}" x:Name="kindCombobox" SelectionChanged="kindCombobox_SelectionChanged" FlowDirection="RightToLeft" FontSize="18" FontFamily="Calibri" Foreground="#19bda4" BorderThickness="0" Margin="10,1,0,1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+
+                            </Grid>
+
+                        </Grid>
+
+                        <Grid Margin="20,8,20,0">
+
+                            <Rectangle Fill="Transparent" Stroke="#d3d3d3" StrokeThickness="0.7" RadiusX="10" RadiusY="10" Height="45" HorizontalAlignment="Stretch"/>
+
+                            <Grid>
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <TextBlock Grid.Column="0" Text="Cinsi" Opacity="0.6" FontSize="15" Foreground="#000000" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,0,0,0"/>
+
+                                <ComboBox Grid.Column="1" SelectedItem="{Binding Breed}" x:Name="breedcombobox" FlowDirection="RightToLeft" FontSize="18" FontFamily="Calibri" Foreground="#19bda4" BorderThickness="0" Margin="10,1,0,1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+
+                            </Grid>
+
+                        </Grid>
+
+                        <Grid x:Name="addPetButton" Margin="20,8,20,0" Tapped="addPetButton_Tapped">
+
+                            <Rectangle Fill="#19bda4" Opacity="0.7" RadiusX="10" RadiusY="10" Height="45" HorizontalAlignment="Stretch"/>
+
+                            <TextBlock Text="Ekle" FontSize="15" FontWeight="Normal" Foreground="#ffffff" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+                        </Grid>
+
+                        <Grid x:Name="closeButton" Margin="20,8,20,0" Tapped="closeButton_Tapped">
+
+                            <Rectangle Fill="#19bda4" Opacity="0.7" RadiusX="10" RadiusY="10" Height="45" HorizontalAlignment="Stretch"/>
+
+                            <TextBlock Text="Daha sonra" FontSize="15" FontWeight="Normal" Foreground="#ffffff" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+                        </Grid>
+
+                        <Grid x:Name="updateButton" Visibility="Visible" Margin="20,8,20,0" Tapped="updateButton_Tapped">
+
+                            <Rectangle Fill="#19bda4" Opacity="0.7" RadiusX="10" RadiusY="10" Height="45" HorizontalAlignment="Stretch"/>
+
+                            <TextBlock Text="Güncelle" FontSize="15" FontWeight="Normal" Foreground="#ffffff" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+                        </Grid>
+
+                        <Grid x:Name="deleteButton" Margin="20,8,20,0" Tapped="deleteButton_Tapped">
+
+                            <Rectangle Fill="#ff6566" Opacity="0.7" RadiusX="10" RadiusY="10" Height="45" HorizontalAlignment="Stretch"/>
+
+                            <TextBlock Text="Sil" FontSize="15" FontWeight="Normal" Foreground="#ffffff" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+                        </Grid>
+
+                    </StackPanel>
+
+                </ScrollViewer>
+
+                <ProgressBar x:Name="progress" Background="Transparent" Foreground="#21c0a5" VerticalAlignment="Center"/>
+
+            </Grid>
+
+        </Grid>
+
+        <Grid>
+
+            <Grid x:Name="backgroundPanel" Margin="0,-40,0,-60" Visibility="Collapsed" Background="#000000" Opacity="0.7"/>
+
+            <Grid x:Name="addInfoPanel" Visibility="Collapsed" Width="280" VerticalAlignment="Center">
+
+                <Rectangle Fill="#ffffff" RadiusX="15" RadiusY="15"/>
+
+                <StackPanel>
+
+                    <TextBlock Margin="0,40,0,0" FontSize="17" FontWeight="Normal" Foreground="#000000" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Run Text="{Binding}"/>
+                        <Run Text="kaydedildi"/>
+                    </TextBlock>
+
+                    <TextBlock Margin="0,10,0,5" FontSize="14" FontWeight="Normal" Foreground="Gray" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Run Text="{Binding}"/>
+                        <Run Text="başarılı bir şekilde kayıt oldu."/>
+                    </TextBlock>
+
+                    <Grid x:Name="closeButtonForAddInfoPanel" Margin="15,8,15,8" Tapped="button_Tapped">
+
+                        <Rectangle Fill="#19bda4" Opacity="0.7" RadiusX="10" RadiusY="10" Height="40" HorizontalAlignment="Stretch"/>
+
+                        <TextBlock Text="Tamam" FontSize="15" FontWeight="SemiBold" Foreground="#ffffff" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+                    </Grid>
+
+                </StackPanel>
+
+                <Rectangle Fill="#ffffff" RadiusX="34" RadiusY="34" Height="68" Width="68" Margin="0,-30,0,0" Stretch="Uniform" VerticalAlignment="Top"/>
+
+                <Image Source="ms-appx:///Assets/PopupIcons/successful.png" Height="60" Margin="0,-26,0,0" Stretch="Uniform" VerticalAlignment="Top"/>
+
+            </Grid>
+
+            <Grid x:Name="updateInfoPanel" Visibility="Collapsed" Width="280" VerticalAlignment="Center">
+
+                <Rectangle Fill="#ffffff" RadiusX="15" RadiusY="15"/>
+
+                <StackPanel>
+
+                    <TextBlock Margin="0,40,0,0" FontSize="17" FontWeight="Normal" Foreground="#000000" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Run Text="Güncellendi"/>
+                    </TextBlock>
+
+                    <TextBlock Margin="0,10,0,5" FontSize="14" FontWeight="Normal" Foreground="Gray" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Run Text="{Binding}"/>
+                        <Run Text="başarılı bir şekilde"/>
+                        <LineBreak/>
+                        <Run Text="güncellendi."/>
+                    </TextBlock>
+
+                    <Grid x:Name="closeButtonForUpdateInfoPanel" Margin="15,8,15,8" Tapped="button_Tapped">
+
+                        <Rectangle Fill="#19bda4" Opacity="0.7" RadiusX="10" RadiusY="10" Height="40" HorizontalAlignment="Stretch"/>
+
+                        <TextBlock Text="Tamam" FontSize="15" FontWeight="SemiBold" Foreground="#ffffff" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+                    </Grid>
+
+                </StackPanel>
+
+                <Rectangle Fill="#ffffff" RadiusX="34" RadiusY="34" Height="68" Width="68" Margin="0,-30,0,0" Stretch="Uniform" VerticalAlignment="Top"/>
+
+                <Image Source="ms-appx:///Assets/PopupIcons/successful.png" Height="60" Margin="0,-26,0,0" Stretch="Uniform" VerticalAlignment="Top"/>
+
+            </Grid>
+
+            <Grid x:Name="deleteInfoPanel" Visibility="Collapsed" Width="280" VerticalAlignment="Center">
+
+                <Rectangle Fill="#ffffff" RadiusX="15" RadiusY="15"/>
+
+                <StackPanel>
+
+                    <TextBlock Margin="0,40,0,0" FontSize="17" FontWeight="Normal" Foreground="#000000" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Run Text="Silindi"/>
+                    </TextBlock>
+
+                    <TextBlock Margin="0,10,0,5" FontSize="14" FontWeight="Normal" Foreground="Gray" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Run Text="{Binding}"/>
+                        <Run Text="başarıyla silindi."/>
+                    </TextBlock>
+
+                    <Grid x:Name="closeButtonForDeleteInfoPanel" Margin="15,8,15,8" Tapped="button_Tapped">
+
+                        <Rectangle Fill="#19bda4" Opacity="0.7" RadiusX="10" RadiusY="10" Height="40" HorizontalAlignment="Stretch"/>
+
+                        <TextBlock Text="Tamam" FontSize="15" FontWeight="SemiBold" Foreground="#ffffff" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+                    </Grid>
+
+                </StackPanel>
+
+                <Rectangle Fill="#ffffff" RadiusX="34" RadiusY="34" Height="68" Width="68" Margin="0,-30,0,0" Stretch="Uniform" VerticalAlignment="Top"/>
+
+                <Image Source="ms-appx:///Assets/PopupIcons/successful.png" Height="60" Margin="0,-26,0,0" Stretch="Uniform" VerticalAlignment="Top"/>
+
+            </Grid>
+
+            <Grid x:Name="deletePanel" Visibility="Collapsed" Width="280" VerticalAlignment="Center">
+
+                <Rectangle Fill="#ffffff" RadiusX="15" RadiusY="15"/>
+
+                <StackPanel>
+
+                    <TextBlock Text="Sil ?" Margin="0,40,0,0" FontSize="17" FontWeight="Normal" Foreground="#000000" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+                    <TextBlock Margin="0,10,0,5" FontSize="14" FontWeight="Normal" Foreground="Gray" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Run Text="{Binding}"/>
+                        <Run Text="isimli dostunuzu silmek"/>
+                        <LineBreak/>
+                        <Run Text="istediğinizden emin misiniz ?"/>
+                    </TextBlock>
+
+                    <Grid x:Name="acceptButton" Margin="15,8,15,0" Tapped="button_Tapped">
+
+                        <Rectangle Fill="#19bda4" Opacity="0.7" RadiusX="10" RadiusY="10" Height="40" HorizontalAlignment="Stretch"/>
+
+                        <TextBlock Text="Sil" FontSize="15" FontWeight="SemiBold" Foreground="#ffffff" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+                    </Grid>
+
+                    <Grid x:Name="exitButtonForDeletePanel" Margin="15,8,15,8" Tapped="button_Tapped">
+
+                        <Rectangle Fill="#19bda4" Opacity="0.7" RadiusX="10" RadiusY="10" Height="40" HorizontalAlignment="Stretch"/>
+
+                        <TextBlock Text="Vazgeç" FontSize="15" FontWeight="SemiBold" Foreground="#ffffff" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+                    </Grid>
+
+                </StackPanel>
+
+                <Rectangle Fill="#ffffff" RadiusX="34" RadiusY="34" Height="68" Width="68" Margin="0,-30,0,0" Stretch="Uniform" VerticalAlignment="Top"/>
+
+                <Image Source="ms-appx:///Assets/PopupIcons/successful.png" Height="60" Margin="0,-26,0,0" Stretch="Uniform" VerticalAlignment="Top"/>
+
+            </Grid>
+
+        </Grid>
+        
+    </Grid>
+
+</Page>

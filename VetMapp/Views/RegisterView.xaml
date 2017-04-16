@@ -1,0 +1,262 @@
+﻿<Page
+    x:Class="VetMapp.Views.RegisterView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:VetMapp.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Page.Background>
+        <SolidColorBrush Color="#ffffff"/>
+    </Page.Background>
+
+    <Page.Transitions>
+        <TransitionCollection>
+            <NavigationThemeTransition>
+                <NavigationThemeTransition.DefaultNavigationTransitionInfo>
+                    <SlideNavigationTransitionInfo/>
+                </NavigationThemeTransition.DefaultNavigationTransitionInfo>
+            </NavigationThemeTransition>
+        </TransitionCollection>
+    </Page.Transitions>
+
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Styles/TextBoxStyle.xaml"/>
+                <ResourceDictionary Source="/Styles/PasswordBoxStyle.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+
+    <Grid>
+
+        <Grid>
+
+            <Grid.Background>
+                <SolidColorBrush Color="#ffffff"/>
+            </Grid.Background>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="45"/>
+                <RowDefinition Height="0.5"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0">
+
+                <TextBlock Text="Üye ol" Foreground="#18bda3" FontWeight="SemiBold" FontSize="19" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+            </Grid>
+
+            <Grid Grid.Row="1">
+
+                <Grid.Background>
+                    <SolidColorBrush Color="#b1b1b1"/>
+                </Grid.Background>
+
+            </Grid>
+
+            <Grid Grid.Row="2">
+
+                <StackPanel MaxWidth="500">
+
+                    <Grid Margin="20,8,20,0">
+
+                        <Rectangle Fill="Transparent" Stroke="#d3d3d3" StrokeThickness="0.7" RadiusX="10" RadiusY="10" Height="45" HorizontalAlignment="Stretch"/>
+
+                        <Grid>
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Grid.Column="0" Text="Kullanıcı Adı" Opacity="0.6" FontSize="15" Foreground="#000000" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,0,0,0"/>
+
+                            <TextBox Grid.Column="1" x:Name="username" TextAlignment="Right" Margin="0,5,5,0" FontFamily="Calibri" FontSize="18" FontWeight="Normal" Foreground="#19bda4" Style="{StaticResource TextBoxStyle}" />
+
+                        </Grid>
+
+                    </Grid>
+
+                    <Grid Margin="20,8,20,0">
+
+                        <Rectangle Fill="Transparent" Stroke="#d3d3d3" StrokeThickness="0.7" RadiusX="10" RadiusY="10" Height="45" HorizontalAlignment="Stretch"/>
+
+                        <Grid>
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Grid.Column="0" Text="Şifre" Opacity="0.6" FontSize="15" Foreground="#000000" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,0,0,0"/>
+
+                            <PasswordBox Grid.Column="1" x:Name="password" HorizontalAlignment="Right" Margin="0,5,5,0" FontFamily="Calibri" FontSize="18" FontWeight="Normal" Foreground="#19bda4" Style="{StaticResource PasswordBoxStyle}" />
+
+                        </Grid>
+
+                    </Grid>
+
+                    <Grid Margin="20,8,20,0">
+
+                        <Rectangle Fill="Transparent" Stroke="#d3d3d3" StrokeThickness="0.7" RadiusX="10" RadiusY="10" Height="45" HorizontalAlignment="Stretch"/>
+
+                        <Grid>
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Grid.Column="0" Text="İsim / Soyisim" Opacity="0.6" FontSize="15" Foreground="#000000" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,0,0,0"/>
+
+                            <TextBox Grid.Column="1" x:Name="nameSurname" InputScope="PersonalFullName" TextAlignment="Right" Margin="0,5,5,0" FontFamily="Calibri" FontSize="18" FontWeight="Normal" Foreground="#19bda4" Style="{StaticResource TextBoxStyle}" />
+
+                        </Grid>
+
+                    </Grid>
+
+                    <Grid Margin="20,8,20,0">
+
+                        <Rectangle Fill="Transparent" Stroke="#d3d3d3" StrokeThickness="0.7" RadiusX="10" RadiusY="10" Height="45" HorizontalAlignment="Stretch"/>
+
+                        <Grid>
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Grid.Column="0" Text="E-Posta" Opacity="0.6" FontSize="15" Foreground="#000000" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,0,0,0"/>
+
+                            <TextBox Grid.Column="1" x:Name="email" InputScope="EmailNameOrAddress" TextAlignment="Right" Margin="0,5,5,0" FontFamily="Calibri" FontSize="18" FontWeight="Normal" Foreground="#19bda4" Style="{StaticResource TextBoxStyle}" />
+
+                        </Grid>
+
+                    </Grid>
+
+                    <Grid Margin="20,8,20,0">
+
+                        <Rectangle Fill="Transparent" Stroke="#d3d3d3" StrokeThickness="0.7" RadiusX="10" RadiusY="10" Height="45" HorizontalAlignment="Stretch"/>
+
+                        <Grid>
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Grid.Column="0" Text="İletişim Numarası" Opacity="0.6" FontSize="15" Foreground="#000000" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,0,0,0"/>
+
+                            <TextBox Grid.Column="1" x:Name="phoneNumber" InputScope="Number" PlaceholderText="opsiyonel" TextAlignment="Right" Margin="0,5,5,0" FontFamily="Calibri" FontSize="18" FontWeight="Normal" Foreground="#19bda4" Style="{StaticResource TextBoxStyle}" />
+
+                        </Grid>
+
+                    </Grid>
+
+                    <Grid Margin="20,8,20,0">
+
+                        <Grid x:Name="register" Tapped="register_Tapped">
+
+                            <Rectangle Fill="#19bda4" Opacity="0.7" RadiusX="10" RadiusY="10" Height="45" HorizontalAlignment="Stretch"/>
+
+                            <TextBlock Text="Üye ol" FontSize="15" FontWeight="Normal" Foreground="#ffffff" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+                        </Grid>
+
+                    </Grid>
+
+                    <Grid Margin="20,8,20,0">
+
+                        <Grid x:Name="exit" Tapped="exit_Tapped">
+
+                            <Rectangle Fill="#19bda4" Opacity="0.7" RadiusX="10" RadiusY="10" Height="45" HorizontalAlignment="Stretch"/>
+
+                            <TextBlock Text="İptal" FontSize="15" FontWeight="Normal" Foreground="#ffffff" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+                        </Grid>
+
+                    </Grid>
+
+                </StackPanel>
+
+            </Grid>
+
+        </Grid>
+
+        <Grid>
+
+            <Grid x:Name="backgroundPanel" Margin="0,-40,0,-60" Visibility="Collapsed" Background="#000000" Opacity="0.7"/>
+
+            <Grid x:Name="successfulRegisterPanel" Visibility="Collapsed" Width="280" VerticalAlignment="Center">
+
+                <Rectangle Fill="#ffffff" RadiusX="15" RadiusY="15"/>
+
+                <StackPanel>
+
+                    <TextBlock Margin="0,40,0,0" FontSize="17" FontWeight="Normal" Foreground="#000000" HorizontalAlignment="Center" VerticalAlignment="Center">
+                       <Run Text="Hoşgeldiniz"/>
+                    </TextBlock>
+
+                    <TextBlock Margin="0,10,0,5" FontSize="14" FontWeight="Normal" Foreground="Gray" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Run Text="Başarılı bir şekilde kayıt oldunuz."/>
+                    </TextBlock>
+
+                    <Grid x:Name="closeButtonForSuccessful" Margin="15,8,15,8" Tapped="button_Tapped">
+
+                        <Rectangle Fill="#19bda4" Opacity="0.7" RadiusX="10" RadiusY="10" Height="40" HorizontalAlignment="Stretch"/>
+
+                        <TextBlock Text="Tamam" FontSize="15" FontWeight="SemiBold" Foreground="#ffffff" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+                    </Grid>
+
+                </StackPanel>
+
+                <Rectangle Fill="#ffffff" RadiusX="34" RadiusY="34" Height="68" Width="68" Margin="0,-30,0,0" Stretch="Uniform" VerticalAlignment="Top"/>
+
+                <Image Source="ms-appx:///Assets/PopupIcons/successful.png" Height="60" Margin="0,-26,0,0" Stretch="Uniform" VerticalAlignment="Top"/>
+
+            </Grid>
+
+            <Grid x:Name="unsuccessfulRegisterPanel" Visibility="Collapsed" Width="280" VerticalAlignment="Center">
+
+                <Rectangle Fill="#ffffff" RadiusX="15" RadiusY="15"/>
+
+                <StackPanel>
+
+                    <TextBlock Text="Uyarı" Margin="0,40,0,0" FontSize="17" FontWeight="Normal" Foreground="#000000" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+                    <TextBlock Margin="0,10,0,5" FontSize="14" FontWeight="Normal" Foreground="Gray" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Run Text="Bu"/>
+                        <Run Text="{Binding}"/>
+                        <Run Text="başka bir"/>
+                        <LineBreak/>
+                        <Run Text="kullanıcımız tarafından"/>
+                        <LineBreak/>
+                        <Run Text="kullanılmaktadır."/>
+                    </TextBlock>
+
+                    <Grid x:Name="closeButtonForUnSuccessful" Margin="15,8,15,8" Tapped="button_Tapped">
+
+                        <Rectangle Fill="#19bda4" Opacity="0.7" RadiusX="10" RadiusY="10" Height="40" HorizontalAlignment="Stretch"/>
+
+                        <TextBlock Text="Tamam" FontSize="15" FontWeight="SemiBold" Foreground="#ffffff" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+                    </Grid>
+
+                </StackPanel>
+
+                <Rectangle Fill="#ffffff" RadiusX="34" RadiusY="34" Height="68" Width="68" Margin="0,-30,0,0" Stretch="Uniform" VerticalAlignment="Top"/>
+
+                <Image Source="ms-appx:///Assets/PopupIcons/cancel.png" Height="60" Margin="0,-26,0,0" Stretch="Uniform" VerticalAlignment="Top"/>
+
+            </Grid>
+
+        </Grid>
+        
+    </Grid>
+
+</Page>
