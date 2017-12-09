@@ -25,11 +25,6 @@ Simply navigate to your directory of interest, then clone.
 $ git clone https://github.com/onurcelikeng/VetMapp.git
 ```
 
-## To-do list
-  - [x] Local Storage
-  - [x] Today Extension
-  - [x] Local Notification
-
 ## Contributing
 1. Fork it (<https://github.com/yourname/yourproject/fork>)
 2. Create your feature branch (`git checkout -b feature/fooBar`)
