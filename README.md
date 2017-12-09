@@ -13,12 +13,12 @@
 
 ## Desktop Images
 <div>
-  <img width="200" src="/ScreenShots/d1.jpeg">
-  <img width="200" src="/ScreenShots/d2.jpeg">
-  <img width="200" src="/ScreenShots/d3.jpeg">
-  <img width="200" src="/ScreenShots/d4.jpeg">
-  <img width="200" src="/ScreenShots/d5.jpeg">
-  <img width="200" src="/ScreenShots/d6.jpeg">
+  <img width="300" src="/ScreenShots/d1.jpeg">
+  <img width="300" src="/ScreenShots/d2.jpeg">
+  <img width="300" src="/ScreenShots/d3.jpeg">
+  <img width="300" src="/ScreenShots/d4.jpeg">
+  <img width="300" src="/ScreenShots/d5.jpeg">
+  <img width="300" src="/ScreenShots/d6.jpeg">
 </div>
 
 ## Requirement
