@@ -36,4 +36,4 @@ $ git clone https://github.com/onurcelikeng/VetMapp.git
 * **Onur Celik** - [GitHub](https://github.com/onurcelikeng)
 
 ## License
-Checkit is released under the [MIT License](LICENSE).
+VetMapp is released under the [MIT License](LICENSE).
